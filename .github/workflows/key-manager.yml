@@ -1,0 +1,32 @@
+name: Key Management
+
+on:
+  repository_dispatch:
+    types: [create-key, delete-key, validate-key]
+
+jobs:
+  process-key:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          
+      - name: Process key request
+        env:
+          ACTION_TYPE: ${{ github.event.action }}
+          KEY_VALUE: ${{ github.event.client_payload.key }}
+        run: |
+          node ./api/key-processor.js
+          
+      - name: Commit changes
+        if: success()
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add .
+          git commit -m "Updated keys database"
+          git push
