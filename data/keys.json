@@ -1,1 +1,8 @@
-[]
+[
+  {
+    "value": "kiet_1234567890",
+    "created": "2025-10-15T08:30:00.000Z",
+    "active": true,
+    "creator": "admin"
+  }
+]
