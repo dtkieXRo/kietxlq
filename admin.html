@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Trị Key</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script type="module" src="assets/js/key-manager.js"></script>
+</head>
+<body>
+    <div class="admin-container">
+        <header>
+            <h1>Quản Lý Key Phần Mềm</h1>
+            <div id="auth-status" class="auth-status"></div>
+        </header>
+        
+        <main>
+            <section class="key-controls">
+                <button id="createKeyBtn" class="btn-primary">
+                    <i class="fas fa-key"></i> Tạo Key Mới
+                </button>
+                <div id="key-result" class="result-message"></div>
+            </section>
+            
+            <section class="key-list">
+                <h2>Danh Sách Key</h2>
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Tìm kiếm key...">
+                </div>
+                <div id="keysContainer" class="keys-container"></div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
